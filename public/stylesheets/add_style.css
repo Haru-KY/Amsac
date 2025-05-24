@@ -1,0 +1,461 @@
+@charset "UTF-8";
+
+header {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 1000;
+}
+
+body{
+    background-color: #a5c1aa;
+}
+
+
+.btn{
+    width: 50px;
+    height: 50px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    z-index: 1000;
+    position: relative;
+    background-color: #6b4c3b;
+}
+
+.btn span{
+    display: inline-block;
+    width: 50%;
+    height: 2PX;
+    background-color: #ccc;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+}
+
+.btn span.close{
+    background-color: #ccc;
+}
+
+.btn.close{
+    border: 1px solid #ccc;
+}
+
+.btn span:nth-last-of-type(1){
+    top:15px;
+}
+.btn span:nth-last-of-type(2){
+    top:25px;
+}
+.btn span:nth-last-of-type(3){
+    top:35px;
+}
+
+#menu{
+    width: 220px;
+    height: 100vh;
+    background-color: #6b4c3b;
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 60px;
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+    
+}
+
+#menu.close {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+#menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    color: #ccc;
+    gap: 20px;
+    padding-left: 30px;
+}
+
+#menu li {
+    font-size: 18px;
+    padding: 10px 0;
+    border: none;
+}
+
+#menu ul li a {
+    text-decoration: none;
+    color: #ccc;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+#menu ul li a:hover {
+    color: #007bff;
+}
+
+.centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.todo-description{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 400px;
+    margin: 10px 0;
+    padding: 8px 12px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+}
+.todo-description:hover {
+    background-color: #aed1f7;
+}
+
+.summary-list {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    will-change: max-height;
+}
+
+/* 表示時に使うクラス */
+.summary-list.show {
+    max-height: 1000px; /* 十分大きめに設定する（中身に合わせて）*/
+}
+
+.summary-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    margin: 10px 0;
+    padding: 8px 12px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+}
+
+.fav-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #ccc;
+    transition: color 0.2s;
+}
+
+.fav-btn.active {
+    color: gold;
+}
+
+.textbox {
+  width: 60px;
+  padding: 10px 10px;
+  border-radius: 5px;
+  margin-left: 30px;
+  margin-top: 10px;
+  border: 2px solid #ccc;
+  background-color: #ccc;
+  font-size: 8px;
+}
+
+.textbox:focus {
+  outline: 0;
+  border: 2px solid #2c8ac9;
+}
+
+.btn-submit {
+    background-color: #648a6b;
+    color: white;
+    padding: 8px 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit_ai {
+    background-color: #487173; 
+    color: white;
+    padding: 8px 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #3e8a42;
+}
+
+.btn-submit_ai:hover {
+    background-color: #26858a;
+}
+
+
+.tag-list{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.tag-list.show {
+    max-height: 500px; 
+}
+
+.open-close {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.open-close span {
+  display: block;
+  background-color: #ff2706;
+  width: 100%;
+  height: 1px;
+  transition: all 0.4s ease;
+}
+.open-close span:nth-of-type(1) {
+  transform: translateX(15px);
+}
+.open-close span:nth-of-type(2) {
+  transform: rotate(-90deg);
+}
+
+.open-close.active span:nth-of-type(2) {
+  transform: rotate(0);
+}
+
+.tag-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tag-label a {
+    display: inline-block;
+}
+
+.tag-list-ai{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.tag-list-ai.show {
+    max-height: 500px; 
+}
+
+.open-close-ai {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.open-close-ai span {
+  display: block;
+  background-color: #ff2706;
+  width: 100%;
+  height: 1px;
+  transition: all 0.4s ease;
+}
+.open-close-ai span:nth-of-type(1) {
+  transform: translateX(15px);
+}
+.open-close-ai span:nth-of-type(2) {
+  transform: rotate(-90deg);
+}
+
+.open-close-ai.active span:nth-of-type(2) {
+  transform: rotate(0);
+}
+
+.tag-label-ai {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tag-label-ai a {
+    display: inline-block;
+}
+
+.delete-btn {
+    background: transparent;
+    border: none;
+    color: red;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.nextback-btn {
+	text-align: center;
+	text-decoration:none;
+	width: 120px;
+	margin: auto;
+	padding: 1rem 4rem;
+	font-weight: bold;
+	border: 2px solid #6b4c3b;
+	color: #6b4c3b;
+	border-radius: 100vh;
+	transition: 0.5s;
+    display: flex;
+    justify-content: center;  
+}
+.nextback-btn:hover {
+	color: #fff;
+	background: #6b4c3b;
+}
+.page-btn{
+    display: flex;
+    justify-content: center;  
+    gap: 100px;           
+}
+
+.summary, .original {
+    padding: 10px;
+    background-color: #f4f8f4;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.toggle-original, .toggle-summary {
+    margin-top: 10px;
+    padding: 4px 10px;
+    font-size: 13px;
+    cursor: pointer;
+    background-color: #ccc;
+    border: none;
+    border-radius: 4px;
+}
+
+.toggle-original:hover, .toggle-summary:hover {
+    background-color: #bbb;
+}
+
+.summary {
+    margin-bottom: 1.5em;
+    padding: 1em;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+
+    margin: 1.5em auto;
+    max-width: 500px;
+    box-sizing: border-box;
+    word-break: break-word;
+}
+.summary p {
+    text-align: center;
+    margin-bottom: 0.5em;
+}
+.summary button {
+    padding: 0.4em 0.8em;
+    font-size: 0.9em;
+    background-color: #6b4c3b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    display: block;
+    margin: 0 auto;
+}
+.email-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* ← 中央寄せにする */
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  margin: 0.5em 0;
+}
+
+.tag_list {
+  display: block;
+  min-height: 24px;
+  margin-bottom: 6px;
+  background-color: #eef6ec; /* テストのために薄い背景色 */
+  padding: 4px;
+  border-radius: 4px;
+}
+
+
+.tag-form {
+  display: inline-block;
+  margin: 2px;
+  padding: 0; /* padding不要に */
+  background: none;
+  border: none;
+}
+
+.tag {
+  display: inline-flex; /* 子要素を横並びに */
+  align-items: center;
+  padding: 4px 8px;
+  background-color: #d5e8d4;
+  border-radius: 12px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  gap: 4px;
+}
+
+.tag-remove-btn {
+  font-size: 12px;
+  color: #555;
+  margin-left: 4px;
+  pointer-events: none; /* ボタン風だがsubmitイベントを止めない */
+}
+
+.tag:hover {
+  background-color: #cce0cc;
+  transition: background-color 0.2s ease;
+}
+.tag:hover .tag-remove-btn {
+  transform: scale(1.2);
+  transition: transform 0.2s ease;
+}
+
+.delete-account-btn {
+    background-color: #b33a3a; /* 暗めの赤 */
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.delete-account-btn:hover {
+    background-color: #8a2a2a;
+
+}
+
+.account-delete-li {
+    margin-top: auto; 
+    padding-bottom: 20px;
+}
